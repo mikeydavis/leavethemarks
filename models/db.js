@@ -3,14 +3,20 @@ var mongoose = require( 'mongoose' );
 var bcrypt=require('bcrypt');
 var SALT_WORK_FACTOR = 10;
 
-var dbURI = 'mongodb://mikie:mikie2016@ds135049.mlab.com:35049/leavethemarks';
+var dbURIx = 'mongodb://mikie:mikie2016@ds135049.mlab.com:35049/leavethemarks';
+
+var env = require('../env/environment');
+var dbURI = `mongodb://${env.accountName}:${env.key}@${env.accountName}.documents.azure.com:${env.port}/${env.databaseName}?ssl=true`;
+
+
+d();
+// eslint-disable-next-line max-len
 
 //var dbURI = 'mongodb://localhost/test';
 //var dbURI = 'mongodb://your_username:your_password@ds043615.mongolab.com:43615/leavethemarks';
 
-
 function d(msg){
-  console.log(msg);
+  console.log(chalk.blue(dbURI));
 }
 
 mongoose.connect(dbURI);

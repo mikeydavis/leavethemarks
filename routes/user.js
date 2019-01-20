@@ -3,7 +3,7 @@ var User = mongoose.model( 'User' );
 
 exports.registrationSuccessful=function(req,res){
   res.render('new-user');
-                  }
+}
 
 exports.logout=function(req,res){
     console.log("Logging  Out :"+req.session.username);

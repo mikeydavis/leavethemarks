@@ -1,7 +1,6 @@
 var mongoose = require('mongoose');
 var Story = mongoose.model('Story');
 
-
 exports.stories=function(req,res){
              Story.find({}, function(err,stories){
                   res.render('home',{stories:stories,session:req.session});
